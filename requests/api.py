@@ -15,17 +15,33 @@ from . import sessions
 
 def request(method, url, **kwargs):
     """Constructs and sends a :class:`Request <Request>`.
+    构造并发送一个 :class: `Request <Request>`
 
     :param method: method for the new :class:`Request` object.
+    :param method: 新建的`Request`对象的方法
+
     :param url: URL for the new :class:`Request` object.
+    :param url: 新建的`Request`的URL
+
     :param params: (optional) Dictionary, list of tuples or bytes to send
         in the body of the :class:`Request`.
+    :param params: (可选) 字典, 元组组成的列表, 或二进制数据, 用在在Reuqest类中发送
+
     :param data: (optional) Dictionary, list of tuples, bytes, or file-like
         object to send in the body of the :class:`Request`.
+    :param data: (可选) 字典, 元组组成的列表, 或二进制数据, 或类文件对象, 在Request中发送
+
     :param json: (optional) A JSON serializable Python object to send in the body of the :class:`Request`.
+    :param json: (可选) 可以序列化为JSON的Python对象, 用来在Request中发送
+
     :param headers: (optional) Dictionary of HTTP Headers to send with the :class:`Request`.
+    :param headers: (可选) HTTP请求头字典, 在Request中发送
+
     :param cookies: (optional) Dict or CookieJar object to send with the :class:`Request`.
+    :param cookies: (可选) 字典或者CookieJar对象, 在Request中发送
+
     :param files: (optional) Dictionary of ``'name': file-like-objects`` (or ``{'name': file-tuple}``) for multipart encoding upload.
+    :param files: (可选) 如 ```'name': file-like-objects``或({'name': file-tuple})之类的文件, 可以支持多种编码方式
         ``file-tuple`` can be a 2-tuple ``('filename', fileobj)``, 3-tuple ``('filename', fileobj, 'content_type')``
         or a 4-tuple ``('filename', fileobj, 'content_type', custom_headers)``, where ``'content-type'`` is a string
         defining the content type of the given file and ``custom_headers`` a dict-like object containing additional headers

@@ -5,8 +5,10 @@ requests.cookies
 ~~~~~~~~~~~~~~~~
 
 Compatibility code to be able to use `cookielib.CookieJar` with requests.
+兼容性代码, 可以在requests中使用  `cookielib.CookieJar`
 
 requests.utils imports from here, so be careful with imports.
+requests.utils 导入了此模块, 导入的时候小心
 """
 
 import copy
@@ -24,10 +26,15 @@ except ImportError:
 
 class MockRequest(object):
     """Wraps a `requests.Request` to mimic a `urllib2.Request`.
+    将`requests.Request`模拟成`urllib2.Request`.
 
     The code in `cookielib.CookieJar` expects this interface in order to correctly
     manage cookie policies, i.e., determine whether a cookie can be set, given the
     domains of the request and the cookie.
+
+    `cookielib.CookieJar`中的代码需要此接口才能正确使用
+     管理cookie策略，即确定是否可以设置cookie，给定
+     请求的域和cookie。
 
     The original request object is read-only. The client is responsible for collecting
     the new headers via `get_new_headers()` and interpreting them appropriately. You
