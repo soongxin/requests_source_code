@@ -37,6 +37,9 @@ from .status_codes import codes
 from .models import REDIRECT_STATI
 
 # Preferred clock, based on which one is more accurate on a given system.
+# 首选始终, 取决于对指定的系统, 哪一个更准确, 在win32平台上使用time.perf_counter或time.clock
+# 在Python3之前的版本, 没有time.perf_counter, 使用time.clock
+# 在其他系统使用time.time
 if sys.platform == 'win32':
     try:  # Python 3.4+
         preferred_clock = time.perf_counter
@@ -50,6 +53,7 @@ def merge_setting(request_setting, session_setting, dict_class=OrderedDict):
     """Determines appropriate setting for a given request, taking into account
     the explicit setting on that request, and the setting in the session. If a
     setting is a dictionary, they will be merged together using `dict_class`
+    确定给定请求的合适设置, 将设置合并到`dict_class`
     """
 
     if session_setting is None:

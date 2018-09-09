@@ -46,19 +46,36 @@ def request(method, url, **kwargs):
         or a 4-tuple ``('filename', fileobj, 'content_type', custom_headers)``, where ``'content-type'`` is a string
         defining the content type of the given file and ``custom_headers`` a dict-like object containing additional headers
         to add for the file.
+
     :param auth: (optional) Auth tuple to enable Basic/Digest/Custom HTTP Auth.
+    :param auth: (可选) Auth 元组, 用来使能Basic/Digest/Custom HTTP 验证
+
     :param timeout: (optional) How many seconds to wait for the server to send data
         before giving up, as a float, or a :ref:`(connect timeout, read
         timeout) <timeouts>` tuple.
+    :param timeout: (可选) 超时参数
     :type timeout: float or tuple
+
     :param allow_redirects: (optional) Boolean. Enable/disable GET/OPTIONS/POST/PUT/PATCH/DELETE/HEAD redirection. Defaults to ``True``.
+    :param allow_redirect: (可选) 布尔值, Enable/disable 重定向
     :type allow_redirects: bool
+
     :param proxies: (optional) Dictionary mapping protocol to the URL of the proxy.
+    :param proxies: (可选) 代理字典
+
     :param verify: (optional) Either a boolean, in which case it controls whether we verify
             the server's TLS certificate, or a string, in which case it must be a path
             to a CA bundle to use. Defaults to ``True``.
+    :param verify: (可选) 这种情况下它控制我们是否验证
+             服务器的TLS证书或字符串，在这种情况下，它必须是路径
+             到要使用的CA包。 默认为“True”。
+
     :param stream: (optional) if ``False``, the response content will be immediately downloaded.
+    :param stream: (可选) 如果是False, 响应的内容会被立即下载
+
     :param cert: (optional) if String, path to ssl client cert file (.pem). If Tuple, ('cert', 'key') pair.
+    :param cert: (可选) 如果是字符串, ssl client 和 cert 文件(.pem)的路径, 如果是元组, ('cert', 'key') 对
+
     :return: :class:`Response <Response>` object
     :rtype: requests.Response
 
